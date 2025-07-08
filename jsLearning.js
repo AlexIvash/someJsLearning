@@ -194,7 +194,7 @@ logCarData(returnsObj("Toyota"));
 //There will always be only one integer that appears an odd number of times.
 
 
-
+//So this thing works
 
 //var assert = require("assert");
 
@@ -202,6 +202,7 @@ function findOdd(arr) {
 
 for(let i = 0; i < arr.length; i++){
   var len = arr.filter (el=>el===arr[i]).length
+  //probably should be var filtered = len%el; or var filtered = len%arr[i]
   var filtered = len%2;
   if (filtered == 1 ){
     return arr[i];
@@ -231,3 +232,37 @@ doTest([1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1], 10);
 doTest([5, 4, 3, 2, 1, 5, 4, 3, 2, 10, 10], 1);
 
 //codewars js
+
+
+
+//var assert = require("assert");
+
+
+//and this thing works too
+
+function findOdd(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const len = arr.filter(el => el === arr[i]).length;
+    if (len % 2 === 1) {
+      return arr[i];
+    }
+  }
+}
+
+function doTest(a, n) {
+  console.log("A =", a);
+  console.log("n =", n);
+
+  if (findOdd(a) === n) {
+    console.log("success");
+  } else {
+    console.log("Not success");
+  }
+}
+
+doTest([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5], 5);
+doTest([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5], -1);
+doTest([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5], 5);
+doTest([10], 10);
+doTest([1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1], 10);
+doTest([5, 4, 3, 2, 1, 5, 4, 3, 2, 10, 10], 1);
