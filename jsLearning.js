@@ -206,8 +206,8 @@ for(let i = 0; i < arr.length; i++){
   if (filtered == 1 ){
     return arr[i];
   }
-  console.log("Filtered is " +filtered)
-    console.log(arr[i])
+  console.log("Filtered is " + filtered)
+    console.log("arr[i] is " + arr[i])
 }
 }
 
