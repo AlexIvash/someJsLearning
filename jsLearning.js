@@ -202,6 +202,7 @@ function findOdd(arr) {
 
 for(let i = 0; i < arr.length; i++){
   var len = arr.filter (el=>el===arr[i]).length
+  //probably should be var filtered = len%el; or var filtered = len%arr[i]
   var filtered = len%2;
   if (filtered == 1 ){
     return arr[i];
