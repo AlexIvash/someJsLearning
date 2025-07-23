@@ -80,3 +80,110 @@ const foundObj = users.every(function(item) {
 return item.age > 16;
 })
 console.log(foundObj);
+
+//------------------------------------------------------------------------------------
+const users = [
+{
+name: "test1",
+familyName: "familyName1",
+age: "17"
+},
+{
+name: "test2",
+familyName: "familyName2",
+age: "19"
+}
+]
+
+const filteredArray = users.filter(function(item) {
+return item.age > 18;
+})
+
+const filteredArray2 = users.filter(function(item) {
+return item.name === "test1";
+})
+
+const foundObj = users.findIndex(function(item) {
+return item.name === "test2"
+})
+
+//^^ These functions will return new array, not the one we used.
+
+console.log(filteredArray)
+console.log(filteredArray2)
+console.log(foundObj)
+console.log(users)
+
+
+
+
+const numbers = [1,2,3,5,3,7,8,20]
+
+function quantity(numbersArr, number) {
+let counter = 0;
+for (item of numbersArr) {
+if (item === number) {
+counter ++;
+}
+}
+return counter > 0 ? counter : "Даного числа немає в масиві"
+}
+
+quantity(numbers, 8);
+
+
+let familyName = "testFamilyName"
+
+function sayYo() {
+let name = "test"
+
+return function () {
+console.log("Yo " + name)
+console.log("Yo " + familyName)
+}
+}
+sayYo()();
+
+
+const objWithMethod = {
+make: "Toyota",
+drive: function() {
+console.log("Engine powered")
+}
+}
+
+const copiedObjWithMethod = structuredClone(objWithMethod);//does not work
+
+
+copiedObjWithMethod.drive();
+
+
+function returnsObj(car) {
+if (car === "Toyota") {
+return {
+make: "Toyota",
+model: "Rav4",
+year: "2023"
+}
+} else if (car === "Volkswagen") {
+return {
+make: "Volkswagen",
+model: "Touareg",
+year: "2019"
+}
+} else {
+return
+{
+message: "Car not found"
+}
+}
+}
+
+function logCarData(carData) {
+console.log(carData.make)
+console.log(carData.model)
+console.log(carData.year)
+carData.message ? console.log(carData.message) : console.log("")
+}
+
+logCarData(returnsObj("Toyota"));
